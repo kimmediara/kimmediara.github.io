@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5wy1论坛-高端技术交流与资源分享平台</title>
+    <meta name="description" content="5wy1论坛专注于前沿科技、编程开发、网络安全及硬件评测。提供深度的技术文档、活跃的社区讨论以及高质量的资源下载，是开发者和极客的首选聚集地。">
+    <meta name="keywords" content="5wy1论坛,技术交流,编程开发,网络安全,资源下载,极客社区">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 12px 24px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Stats */
+        .stats-bar {
+            background-color: var(--card-bg);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Main Content Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 32px;
+            padding: 40px 0;
+        }
+
+        /* Section Styles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 18px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Forum Categories */
+        .category-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 24px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .category-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .cat-header {
+            padding: 16px 24px;
+            background-color: #f1f5f9;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cat-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .cat-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .cat-info span {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .cat-body {
+            padding: 0;
+        }
+
+        .forum-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 24px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s;
+        }
+
+        .forum-row:last-child {
+            border-bottom: none;
+        }
+
+        .forum-row:hover {
+            background-color: #f8fafc;
+        }
+
+        .forum-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #e0f2fe;
+            color: #0284c7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 16px;
+        }
+
+        .forum-details {
+            flex: 1;
+        }
+
+        .forum-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .forum-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            display: block;
+        }
+
+        .forum-meta {
+            text-align: right;
+            min-width: 100px;
+        }
+
+        .forum-meta .count {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .forum-meta .last-post {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .topic-list li {
+            margin-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .topic-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .topic-list a {
+            font-size: 14px;
+            color: var(--text-main);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .topic-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .topic-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 4px 10px;
+            background-color: #f1f5f9;
+            border-radius: 20px;
+            color: var(--text-light);
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 48px 0 24px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h5 {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+            }
+            
+            .nav-menu {
+                margin: 12px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                5wy1<span>论坛</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">技术交流</a>
+                <a href="#">资源下载</a>
+                <a href="#">软件评测</a>
+                <a href="#">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>连接技术，探索未知</h1>
+            <p>5wy1论坛致力于为开发者、极客和技术爱好者提供最前沿的交流平台。分享代码，讨论架构，解决难题。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索主题、帖子或资源...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>12,580</h3>
+                <p>活跃会员</p>
+            </div>
+            <div class="stat-item">
+                <h3>85,420</h3>
+                <p>技术主题</p>
+            </div>
+            <div class="stat-item">
+                <h3>3,210</h3>
+                <p>最新回复</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>技术支持</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="container main-layout">
+        <!-- Main Content Area -->
+        <div class="content-area">
+            
+            <!-- Latest Discussions -->
+            <section class="section-block">
+                <div class="section-header">
+                    <h2 class="section-title">最新动态</h2>
+                    <a href="#" class="section-more">查看全部 &rarr;</a>
+                </div>
+
+                <div class="category-card">
+                    <div class="cat-header">
+                        <div class="cat-icon">🔥</div>
+                        <div class="cat-info">
+                            <h4>热门讨论区</h4>
+                            <span>今日热议 | 实时更新</span>
+                        </div>
+                    </div>
+                    <div class="cat-body">
+                        <div class="forum-row">
+                            <div class="forum-icon">💻</div>
+                            <div class="forum-details">
+                                <a href="#" class="forum-title">2024年前端开发技术栈选型指南：React vs Vue 3</a>
+                                <span class="forum-desc">讨论最新的框架特性、性能优化以及企业级应用的最佳实践。</span>
+                            </div>
+                            <div class="forum-meta">
+                                <div class="count">342 回复</div>
+                                <div class="last-post">2分钟前 by <strong>DevMaster</strong></div>
+                            </div>
+                        </div>
+                        <div class="forum-row">
+                            <div class="forum-icon">🔒</div>
+                            <div class="forum-details">
+                                <a href="#" class="forum-title">网络安全攻防实战：常见Web漏洞修复方案汇总</a>
+                                <span class="forum-desc">深入解析SQL注入、XSS等漏洞原理及防御代码示例。</span>
+                            </div>
+                            <div class="forum-meta">
+                                <div class="count">128 回复</div>
+                                <div class="last-post">15分钟前 by <strong>SecOps</strong></div>
+                            </div>
+                        </div>
+                        <div class="forum-row">
+                            <div class="forum-icon">🚀</div>
+                            <div class="forum-details">
+                                <a href="#" class="forum-title">Docker容器化部署：从零搭建高可用微服务架构</a>
+                                <span class="forum-desc">K8s集群配置、CI/CD流水线搭建及服务编排实战经验分享。</span>
+                            </div>
+                            <div class="forum-meta">
+                                <div class="count">89 回复</div>
+                                <div class="last-post">1小时前 by <strong>CloudDev</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Categories -->
+                <section class="section-block">
+                    <div class="section-header">
+                        <h2 class="section-title">核心版块</h2>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="cat-header">
+                            <div class="cat-icon">💻</div>
+                            <div class="cat-info">
+                                <h4>编程开发</h4>
+                                <span>Java, Python, Go, C++, 前端</span>
+                            </div>
+                        </div>
+                        <div class="cat-body">
+                            <div class="forum-row">
+                                <div class="forum-icon" style="background:#e0f2fe; color:#0284c7;">JS</div>
+                                <div class="forum-details">
+                                    <a href="#" class="forum-title">JavaScript 异步编程：Promise 与 Async/Await 深度解析</a>
+                                    <span class="forum-desc">前端必学核心概念，从回调地狱到优雅的异步处理。</span>
+                                </div>
+                                <div class="forum-meta">
+                                    <div class="count">56</div>
+                                    <div class="last-post">10分钟前</div>
+                                </div>
+                            </div>
+                            <div class="forum-row">
+                                <div class="forum-icon" style="background:#dcfce7; color:#16a34a;">Py</div>
+                                <div class="forum-details">
+                                    <a href="#" class="forum-title">Python 数据分析：Pandas 与 Matplotlib 实战案例</a>
+                                    <span class="forum-desc">如何处理海量数据并生成可视化报表。</span>
+                                </div>
+                                <div class="forum-meta">
+                                    <div class="count">42</div>
+                                    <div class="last-post">30分钟前</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="cat-header">
+                            <div class="cat-icon">🔧</div>
+                            <div class="cat-info">
+                                <h4>硬件与运维</h4>
+                                <span>Linux, Windows Server, 硬件DIY</span>
+                            </div>
+                        </div>
+                        <div class="cat-body">
+                            <div class="forum-row">
+                                <div class="forum-icon" style="background:#ffedd5; color:#ea580c;">Ln</div>
+                                <div class="forum-details">
+                                    <a href="#" class="forum-title">Linux 服务器安全加固：CentOS 7 系统配置清单</a>
+                                    <span class="forum-desc">防火墙设置、SSH优化及日志审计策略。</span>
+                                </div>
+                                <div class="forum-meta">
+                                    <div class="count">23</div>
+                                    <div class="last-post">2小时前</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </section>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            
+            <!-- Hot Topics Widget -->
+            <div class="sidebar-widget">
+                <h4 class="widget-title">本周热榜</h4>
+                <ul class="topic-list">
+                    <li>
+                        <a href="#">如何快速搭建个人博客？推荐几种静态生成器</a>
+                        <div class="topic-meta">
+                            <span>💻 编程开发</span>
+                            <span>1.2k 浏览</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">2024年最值得购买的机械键盘推荐（轴体篇）</a>
+                        <div class="topic-meta">
+                            <span>🎮 硬件交流</span>
+                            <span>890 浏览</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Go语言并发编程：Goroutine 与 Channel 使用心得</a>
+                        <div class="topic-meta">
+                            <span>💻 编程开发</span>
+                            <span>654 浏览</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">远程办公效率提升：Figma 与 Notion 实战技巧</a>
+                        <div class="topic-meta">
+                            <span>💼 职场技能</span>
+                            <span>520 浏览</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tags Widget -->
+            <div class="sidebar-widget">
+                <h4 class="widget-title">热门标签</h4>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">React</a>
+                    <a href="#" class="tag">Docker</a>
+                    <a href="#" class="tag">Python</a>
+                    <a href="#" class="tag">算法</a>
+                    <a href="#" class="tag">架构设计</a>
+                    <a href="#" class="tag">开源</a>
+                    <a href="#" class="tag">AI工具</a>
+                    <a href="#" class="tag">隐私安全</a>
+                </div>
+            </div>
+
+            <!-- Download Promo -->
+            <div class="sidebar-widget" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white;">
+                <h4 style="margin-bottom: 10px; font-size: 16px;">下载官方客户端</h4>
+                <p style="font-size: 12px; margin-bottom: 16px; opacity: 0.9;">体验更流畅的论坛浏览与即时消息推送。</p>
+                <button class="btn" style="background: white; color: var(--primary-color); width: 100%;">立即下载</button>
+            </div>
+
+        </aside>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 16px; display: inline-flex;">
+                        5wy1<span>论坛</span>
+                    </a>
+                    <p style="font-size: 14px; line-height: 1.8;">
+                        5wy1论坛是一个致力于技术分享与交流的社区平台。我们汇聚了来自全球的开发者、设计师和极客，共同探讨前沿技术，分享实践经验，构建开放的技术生态。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>快速链接</h5>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">社区规范</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系管理员</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>资源中心</h5>
+                    <ul>
+                        <li><a href="#">技术文档</a></li>
+                        <li><a href="#">开源项目</a></li>
+                        <li><a href="#">工具下载</a></li>
+                        <li><a href="#">API 文档</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>关注我们</h5>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Twitter / X</a></li>
+                        <li><a href="#">Discord 社区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 5wy1论坛. All rights reserved. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                  </html>
