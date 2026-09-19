@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="台球手机游戏合集提供最热门的3D台球、8球、9球手机模拟器下载与在线游玩指南。包含物理引擎评测、操作技巧教学、赛事模式介绍及最佳配置推荐。">
+    <meta name="keywords" content="台球手机游戏,3D台球,手机台球,台球模拟器,8球游戏下载,台球攻略">
+    <title>台球手机游戏-高清3D模拟与在线竞技平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --accent-hover: #d4ac0d;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(241, 196, 15, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: white;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .section-link {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-link:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .game-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .game-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .rating {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: #f0f4f8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Guide Section */
+        .guide-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .guide-item {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .guide-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .guide-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .sidebar {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-hover);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: rgba(255,255,255,0.7);
+            padding: 50px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-container nav.show {
+                display: flex;
+            }
+
+            .nav-container nav ul {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .guide-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span>🎱</span> 台球大师
+            </a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#games">游戏推荐</a></li>
+                    <li><a href="#guide">操作指南</a></li>
+                    <li><a href="#features">游戏特色</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>极致物理引擎 · 沉浸式台球体验</h1>
+                <p>精选全网最受欢迎的台球手机游戏，支持多人联机、自定义球桌与专业赛事模式，随时随地挥杆对决。</p>
+                <div class="cta-group">
+                    <button class="btn btn-primary" onclick="scrollToSection('games')">立即开始游戏</button>
+                    <button class="btn btn-outline" onclick="scrollToSection('guide')">查看操作教程</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>真实物理模拟</h3>
+                        <p>采用次世代物理引擎，精准计算摩擦力、反弹角度与动量守恒，还原真实台球手感。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👥</div>
+                        <h3>多人实时对战</h3>
+                        <p>支持在线匹配与好友房，与全球玩家同台竞技，体验紧张刺激的台球对决。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🏆</div>
+                        <h3>职业赛事模式</h3>
+                        <p>模拟斯诺克与美式8球职业赛事，挑战AI高难度关卡，冲击大师排行榜。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game List -->
+        <section id="games" class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门台球游戏推荐</h2>
+                <a href="#" class="section-link">查看全部游戏 &rarr;</a>
+            </div>
+            <div class="game-grid">
+                <!-- Card 1 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">热门</span>
+                        <img src="https://picsum.photos/seed/pool1/400/300" alt="3D台球大师">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="game-title">3D台球大师 Pro</h3>
+                        <p class="game-desc">拥有超精细的球桌纹理和球体材质，支持8球、9球及斯诺克多种玩法，物理手感极佳。</p>
+                        <div class="game-meta">
+                            <span class="rating">★ 4.8</span>
+                            <span>500MB+</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">多人</span>
+                        <img src="https://picsum.photos/seed/pool2/400/300" alt="极速台球对战">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="game-title">极速台球对战</h3>
+                        <p class="game-desc">快节奏竞技游戏，内置房间系统，支持语音交流，是休闲聚会的最佳选择。</p>
+                        <div class="game-meta">
+                            <span class="rating">★ 4.5</span>
+                            <span>120MB</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">模拟</span>
+                        <img src="https://picsum.photos/seed/pool3/400/300" alt="斯诺克模拟器">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="game-title">专业斯诺克模拟</h3>
+                        <p class="game-desc">专为斯诺克爱好者打造，还原开球线、开球规则及复杂的走位计算。</p>
+                        <div class="game-meta">
+                            <span class="rating">★ 4.9</span>
+                            <span>300MB</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <span class="card-tag">休闲</span>
+                        <img src="https://picsum.photos/seed/pool4/400/300" alt="迷你台球">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="game-title">迷你台球乐园</h3>
+                        <p class="game-desc">画风可爱，操作简单，适合各年龄段玩家，包含大量趣味关卡。</p>
+                        <div class="game-meta">
+                            <span class="rating">★ 4.6</span>
+                            <span>80MB</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Guide & FAQ -->
+        <section id="guide" class="container">
+            <div class="section-header">
+                <h2 class="section-title">新手指南与技巧</h2>
+            </div>
+            <div class="guide-container">
+                <div class="guide-list">
+                    <div class="guide-item">
+                        <h3>1. 触屏操作技巧</h3>
+                        <p>在大多数台球手机游戏中，采用“拖拽瞄准+力度条”的机制。在球杆位置按下并拖动屏幕来调整击球方向和角度，松开手指控制力度。注意观察瞄准辅助线，它显示了球的预计落点。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h3>2. 库边反弹原理</h3>
+                        <p>利用库边（球桌边缘）进行反弹是台球的核心技巧。在瞄准时，利用“镜像原理”，想象球桌另一侧有一个虚拟球，调整角度使球撞击库边后能精准指向目标球，这能帮助打出高难度的长台进攻。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h3>3. 颜色球规则基础</h3>
+                        <p>在8球模式中，开球后如果未将所有彩球打入袋中，通常需要根据打进的第一颗彩球决定自己的全色或花色。务必在开局前确认规则，避免犯规导致对手直接获胜。</p>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <h3>常见问题 (FAQ)</h3>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">如何提高瞄准精度？</div>
+                        <div class="faq-answer">建议在游戏设置中开启“瞄准辅助线”功能，并多练习短距离击球，熟悉手指拖动的灵敏度。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">游戏是否支持离线单人游玩？</div>
+                        <div class="faq-answer">是的，大部分台球游戏都包含单人闯关模式和练习模式，无需联网即可体验。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">卡顿怎么办？</div>
+                        <div class="faq-answer">请检查手机内存，关闭后台其他应用，或降低游戏内的画质设置。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">如何联机和朋友对战？</div>
+                        <div class="faq-answer">在游戏大厅选择“好友房间”或“房间号匹配”，输入房间号即可加入好友的对局。</div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>🎱 台球大师</h4>
+                <p>专注于为玩家提供最优质的手机台球游戏资讯与下载服务。无论是职业模拟还是休闲娱乐，这里都有属于你的舞台。</p>
+            </div>
+            <div class="footer-col">
+                <h4>游戏分类</h4>
+                <ul>
+                    <li><a href="#">3D台球</a></li>
+                    <li><a href="#">斯诺克</a></li>
+                    <li><a href="#">8球/9球</a></li>
+                    <li><a href="#">街机台球</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系合作</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 台球手机游戏推荐平台. All Rights Reserved. 本站内容仅供学习交流使用。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('show');
+        }
+
+        // Smooth Scroll
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                document.getElementById('main-nav').classList.remove('show');
+            }
+        }
+
+        // Toggle FAQ
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            parent.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('main-nav').classList.remove('show');
+            });
+        });
+    </script>
+</body>
+                                          </html>
