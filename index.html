@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dota2英雄介绍 - 全面解析Dota 2 120余位英雄的背景故事、技能机制、出装思路及对线技巧。提供英雄胜率、热门出装推荐及实战攻略。">
+    <meta name="keywords" content="Dota2英雄介绍, Dota2攻略, 英雄技能, 英雄出装, Dota2背景故事">
+    <title>Dota2英雄介绍 - 完整技能解析与实战攻略指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-bg: #0f111a;
+            --secondary-bg: #1a1d2d;
+            --card-bg: #232738;
+            --accent-color: #d63031; /* Dota Red */
+            --accent-hover: #ff4757;
+            --text-main: #ffffff;
+            --text-secondary: #a4b0be;
+            --border-color: #2f3542;
+            --font-stack: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 17, 26, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: 4px;
+            padding: 5px 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            outline: none;
+            width: 150px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(to right, rgba(15, 17, 26, 0.9), rgba(15, 17, 26, 0.4)), url('https://picsum.photos/seed/dota2hero/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #dfe6e9;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        /* Hero Grid */
+        .hero-grid {
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .hero-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--accent-color);
+        }
+
+        .hero-img {
+            height: 200px;
+            background-color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .hero-card:hover .hero-img img {
+            transform: scale(1.05);
+        }
+
+        .hero-info {
+            padding: 15px;
+        }
+
+        .hero-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .hero-role {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .role-tag {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Detail Section */
+        .detail-section {
+            padding: 60px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .detail-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .detail-sidebar {
+            position: sticky;
+            top: 90px;
+        }
+
+        .detail-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .stat-label { color: var(--text-secondary); }
+        .stat-value { font-weight: 600; }
+
+        .detail-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .detail-content .intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .skill-section {
+            margin-bottom: 40px;
+        }
+
+        .skill-item {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #000;
+            border-radius: 8px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .skill-desc h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-desc p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .skill-level {
+            display: flex;
+            gap: 10px;
+        }
+
+        .level-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #444;
+            cursor: pointer;
+        }
+        .level-dot.active { background-color: var(--accent-color); }
+
+        .build-section h3 {
+            margin-bottom: 20px;
+        }
+
+        .item-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .item-card {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 6px;
+            width: 120px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+        
+        .item-name {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .item-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .detail-container { grid-template-columns: 1fr; }
+            .detail-sidebar { position: static; }
+            .nav-menu { display: none; } /* Simplified mobile nav */
+            .header-inner { flex-direction: column; height: auto; padding: 15px 0; gap: 15px; }
+            .filter-bar { flex-direction: column; align-items: stretch; }
+            .filter-group { overflow-x: auto; padding-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span>⚔️</span> Dota2百科
+        </a>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#" class="active">英雄介绍</a></li>
+                <li><a href="#">英雄攻略</a></li>
+                <li><a href="#">装备大全</a></li>
+                <li><a href="#">更新日志</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索英雄...">
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Dota 2 英雄介绍</h1>
+        <p>探索Valve开发的Dota 2世界中每一位英雄的独特能力。从力量型战士到智力型法师，了解他们的背景故事、技能机制、出装思路及对线技巧。</p>
+        <a href="#hero-list" class="btn">查看全部英雄</a>
+    </div>
+</section>
+
+<div class="container" id="hero-list">
+    <div class="filter-bar">
+        <div class="filter-group">
+            <button class="filter-btn active">全部</button>
+            <button class="filter-btn">力量</button>
+            <button class="filter-btn">敏捷</button>
+            <button class="filter-btn">智力</button>
+            <button class="filter-btn">辅助</button>
+        </div>
+        <div class="filter-group">
+            <button class="filter-btn">最新</button>
+            <button class="filter-btn">热门</button>
+            <button class="filter-btn">冷门</button>
+        </div>
+    </div>
+
+    <div class="hero-grid">
+        <!-- Hero Card 1 -->
+        <article class="hero-card">
+            <div class="hero-img">
+                <img src="https://picsum.photos/seed/invoker/300/300" alt="冥魂大帝">
+            </div>
+            <div class="hero-info">
+                <h3 class="hero-name">冥魂大帝</h3>
+                <div class="hero-role">
+                    <span class="role-tag">力量</span>
+                    <span>核心 / 冲锋</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Hero Card 2 -->
+        <article class="hero-card">
+            <div class="hero-img">
+                <img src="https://picsum.photos/seed/phantom/300/300" alt="幻影刺客">
+            </div>
+            <div class="hero-info">
+                <h3 class="hero-name">幻影刺客</h3>
+                <div class="hero-role">
+                    <span class="role-tag">敏捷</span>
+                    <span>核心 / 刺客</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Hero Card 3 -->
+        <article class="hero-card">
+            <div class="hero-img">
+                <img src="https://picsum.photos/seed/chen/300/300" alt="晨曦之锤">
+            </div>
+            <div class="hero-info">
+                <h3 class="hero-name">晨曦之锤</h3>
+                <div class="hero-role">
+                    <span class="role-tag">力量</span>
+                    <span>辅助 / 牵制</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Hero Card 4 -->
+        <article class="hero-card">
+            <div class="hero-img">
+                <img src="https://picsum.photos/seed/mirana/300/300" alt="月之女祭司">
+            </div>
+            <div class="hero-info">
+                <h3 class="hero-name">月之女祭司</h3>
+                <div class="hero-role">
+                    <span class="role-tag">敏捷</span>
+                    <span>核心 / 辅助</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Hero Card 5 -->
+        <article class="hero-card">
+            <div class="hero-img">
+                <img src="https://picsum.photos/seed/rubick/300/300" alt="撼地者">
+            </div>
+            <div class="hero-info">
+                <h3 class="hero-name">撼地者</h3>
+                <div class="hero-role">
+                    <span class="role-tag">力量</span>
+                    <span>核心 / 控制</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Hero Card 6 -->
+        <article class="hero-card">
+            <div class="hero-img">
+                <img src="https://picsum.photos/seed/queen/300/300" alt="莉娜">
+            </div>
+            <div class="hero-info">
+                <h3 class="hero-name">莉娜</h3>
+                <div class="hero-role">
+                    <span class="role-tag">智力</span>
+                    <span>核心 / 爆发</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Hero Card 7 -->
+        <article class="hero-card">
+            <div class="hero-img">
+                <img src="https://picsum.photos/seed/sniper/300/300" alt="狙击手">
+            </div>
+            <div class="hero-info">
+                <h3 class="hero-name">狙击手</h3>
+                <div class="hero-role">
+                    <span class="role-tag">敏捷</span>
+                    <span>核心 / 远程</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Hero Card 8 -->
+        <article class="hero-card">
+            <div class="hero-img">
+                <img src="https://picsum.photos/seed/chen/300/300" alt="全能骑士">
+            </div>
+            <div class="hero-info">
+                <h3 class="hero-name">全能骑士</h3>
+                <div class="hero-role">
+                    <span class="role-tag">力量</span>
+                    <span>辅助 / 防御</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+<section class="detail-section">
+    <div class="container detail-container">
+        <!-- Sidebar Info -->
+        <aside class="detail-sidebar">
+            <div class="detail-card">
+                <h3>基础属性</h3>
+                <div class="stat-row">
+                    <span class="stat-label">力量</span>
+                    <span class="stat-value">24 + 2.65</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">敏捷</span>
+                    <span class="stat-value">18 + 2.30</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">智力</span>
+                    <span class="stat-value">20 + 2.05</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">攻击速度</span>
+                    <span class="stat-value">100 (+25%)</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">移动速度</span>
+                    <span class="stat-value">315</span>
+                </div>
+            </div>
+
+            <div class="detail-card">
+                <h3>玩法定位</h3>
+                <p style="color: #a4b0be; font-size: 0.9rem; margin-bottom: 10px;">
+                    该英雄擅长在前中期进行游走抓人，利用高爆发瞬间秒杀敌方脆皮英雄。
+                </p>
+                <ul style="font-size: 0.9rem; color: #a4b0be;">
+                    <li>✅ 极佳的开团能力</li>
+                    <li>✅ 高额的爆发伤害</li>
+                    <li>⚠️ 缺乏保命手段</li>
+                    <li>⚠️ 依赖技能冷却</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="detail-content">
+            <h2>幻影刺客</h2>
+            <p class="intro">
+                幻影刺客是Dota 2中极具代表性的敏捷型英雄，以其极高的敏捷成长和恐怖的暴击伤害闻名。她来自被遗忘的艾欧泽亚丛林，是潘达斯的女儿，为了复仇而踏上战场。
+            </p>
+
+            <div class="skill-section">
+                <h3>英雄技能</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">❄️</div>
+                    <div class="skill-desc">
+                        <h4>灵能之刃</h4>
+                        <p>幻影刺客投掷出她的灵能之刃，对目标造成伤害，并使幻影刺客获得移动速度提升。如果在攻击后没有击杀目标，灵能之刃会返回幻影刺客身边。</p>
+                        <div class="skill-level">
+                            <div class="level-dot active"></div>
+                            <div class="level-dot active"></div>
+                            <div class="level-dot active"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-icon">💥</div>
+                    <div class="skill-desc">
+                        <h4>恩赐解脱</h4>
+                        <p>幻影刺客凝聚灵能，对目标发动致命一击。暴击伤害与敏捷值挂钩。如果目标处于魔法免疫状态，则不会受到伤害。</p>
+                        <div class="skill-level">
+                            <div class="level-dot active"></div>
+                            <div class="level-dot active"></div>
+                            <div class="level-dot active"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-icon">⚡</div>
+                    <div class="skill-desc">
+                        <h4>模糊</h4>
+                        <p>幻影刺客的攻击具有模糊效果，使她的攻击难以被锁定，并有一定几率使目标无法进行闪避。</p>
+                        <div class="skill-level">
+                            <div class="level-dot active"></div>
+                            <div class="level-dot active"></div>
+                            <div class="level-dot active"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-icon">☠️</div>
+                    <div class="skill-desc">
+                        <h4>幻影突袭</h4>
+                        <p>幻影刺客瞬间冲刺至目标身边，使其眩晕并造成伤害。在技能持续期间，幻影刺客会获得闪避能力。</p>
+                        <div class="skill-level">
+                            <div class="level-dot active"></div>
+                            <div class="level-dot active"></div>
+                            <div class="level-dot active"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="build-section">
+                <h3>推荐出装</h3>
+                <div class="item-list">
+                    <div class="item-card">
+                        <span class="item-name">暗影之刃</span>
+                        <span class="item-desc">增加移速与爆发</span>
+                    </div>
+                    <div class="item-card">
+                        <span class="item-name">蝴蝶</span>
+                        <span class="item-desc">大幅增加攻击力与闪避</span>
+                    </div>
+                    <div class="item-card">
+                        <span class="item-name">撒旦之邪力</span>
+                        <span class="item-desc">提供生命值与吸血</span>
+                    </div>
+                    <div class="item-card">
+                        <span class="item-name">BKB</span>
+                        <span class="item-desc">免控保命</span>
+                    </div>
+                    <div class="item-card">
+                        <span class="item-name">金箍棒</span>
+                        <span class="item-desc">克制闪避与高护甲</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于本站</h4>
+                <ul>
+                    <li><a href="#">Dota2英雄介绍</a></li>
+                    <li><a href="#">英雄攻略中心</a></li>
+                    <li><a href="#">版本更新资讯</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">力量英雄</a></li>
+                    <li><a href="#">敏捷英雄</a></li>
+                    <li><a href="#">智力英雄</a></li>
+                    <li><a href="#">新手入门</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持</h4>
+                <ul>
+                    <li><a href="#">使用条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">网站地图</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Dota2百科 - Dota2英雄介绍指南. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                          </html>
