@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="和平鸽图片 - 提供高清正版和平鸽图片素材下载、版权图库、矢量插画及摄影作品，适用于设计、海报、网页及装饰，支持商用授权。">
+    <meta name="keywords" content="和平鸽图片,和平鸽素材,和平鸽海报,和平鸽插画,和平鸽矢量图">
+    <title>和平鸽图片 - 高清正版素材下载与版权图库</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --primary-dark: #388E3C;
+            --accent-color: #FFC107;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f9f9f9;
+            --bg-white: #ffffff;
+            --border-radius: 8px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid #eee;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Filter Tags */
+        .filters {
+            max-width: var(--container-width);
+            margin: 30px auto 20px;
+            padding: 0 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-tag {
+            padding: 6px 16px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-tag:hover, .filter-tag.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Grid Layout */
+        .gallery-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .image-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .image-wrapper {
+            position: relative;
+            padding-top: 75%; /* 4:3 Aspect Ratio */
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .image-card:hover .image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .image-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .icon-btn {
+            background: white;
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .icon-btn:hover {
+            background: var(--accent-color);
+        }
+
+        .card-info {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .badge {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Sections */
+        .section-title {
+            max-width: var(--container-width);
+            margin: 40px auto 20px;
+            padding: 0 20px;
+            font-size: 24px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        /* Usage Guide */
+        .usage-guide {
+            background-color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .guide-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .guide-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .guide-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .guide-item h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .guide-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: white;
+            padding: 60px 20px;
+            margin-top: 40px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 12px;
+            color: var(--text-secondary);
+            display: none;
+            font-size: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                height: auto;
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 12px;
+            }
+            .card-info {
+                padding: 10px;
+            }
+            .card-title {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9c.83 0 1.5-.67 1.5-1.5S7.83 8 7 8s-1.5.67-1.5 1.5S6.17 11 7 11zm10 0c.83 0 1.5-.67 1.5-1.5S17.83 8 17 8s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-5 4c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                </svg>
+                鸽语图库
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">高清摄影</a></li>
+                    <li><a href="#">矢量插画</a></li>
+                    <li><a href="#">版权图库</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="search-btn">上传作品</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>和平鸽图片素材库</h1>
+                <p>汇聚全球优质和平鸽摄影、插画与矢量图，为您提供版权清晰的视觉素材，适用于公益海报、和平宣传及各类设计项目。</p>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索：白鸽、橄榄枝、和平、环保...">
+                    <button type="button">搜索</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="filter-tag active">全部</div>
+            <div class="filter-tag">高清摄影</div>
+            <div class="filter-tag">矢量插画</div>
+            <div class="filter-tag">扁平化设计</div>
+            <div class="filter-tag">3D渲染</div>
+            <div class="filter-tag">剪影风格</div>
+            <div class="filter-tag">手绘涂鸦</div>
+        </section>
+
+        <section class="gallery-container">
+            <div class="gallery-grid">
+                <!-- Card 1 -->
+                <article class="image-card">
+                    <div class="image-wrapper">
+                        <img src="https://picsum.photos/seed/pigeon1/600/450" alt="一只飞翔的白色和平鸽摄影图">
+                        <div class="card-overlay">
+                            <span class="icon-btn" title="下载">⬇</span>
+                            <span class="icon-btn" title="收藏">♥</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">飞翔的和平鸽</h3>
+                        <div class="card-meta">
+                            <span>摄影</span>
+                            <span class="badge">HD</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="image-card">
+                    <div class="image-wrapper">
+                        <img src="https://picsum.photos/seed/pigeon2/600/450" alt="绿色背景上的和平鸽矢量图标">
+                        <div class="card-overlay">
+                            <span class="icon-btn">⬇</span>
+                            <span class="icon-btn">♥</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">和平鸽矢量图标</h3>
+                        <div class="card-meta">
+                            <span>矢量</span>
+                            <span class="badge">EPS</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="image-card">
+                    <div class="image-wrapper">
+                        <img src="https://picsum.photos/seed/pigeon3/600/450" alt="橄榄枝与和平鸽的组合插画">
+                        <div class="card-overlay">
+                            <span class="icon-btn">⬇</span>
+                            <span class="icon-btn">♥</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">橄榄枝与和平鸽</h3>
+                        <div class="card-meta">
+                            <span>插画</span>
+                            <span class="badge">PNG</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="image-card">
+                    <div class="image-wrapper">
+                        <img src="https://picsum.photos/seed/pigeon4/600/450" alt="卡通风格的和平鸽素材">
+                        <div class="card-overlay">
+                            <span class="icon-btn">⬇</span>
+                            <span class="icon-btn">♥</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">卡通和平鸽</h3>
+                        <div class="card-meta">
+                            <span>矢量</span>
+                            <span class="badge">AI</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="image-card">
+                    <div class="image-wrapper">
+                        <img src="https://picsum.photos/seed/pigeon5/600/450" alt="俯视视角的和平鸽摄影">
+                        <div class="card-overlay">
+                            <span class="icon-btn">⬇</span>
+                            <span class="icon-btn">♥</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">俯视视角</h3>
+                        <div class="card-meta">
+                            <span>摄影</span>
+                            <span class="badge">JPG</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="image-card">
+                    <div class="image-wrapper">
+                        <img src="https://picsum.photos/seed/pigeon6/600/450" alt="极简线条风格的和平鸽">
+                        <div class="card-overlay">
+                            <span class="icon-btn">⬇</span>
+                            <span class="icon-btn">♥</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">极简线条</h3>
+                        <div class="card-meta">
+                            <span>矢量</span>
+                            <span class="badge">SVG</span>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- Card 7 -->
+                 <article class="image-card">
+                    <div class="image-wrapper">
+                        <img src="https://picsum.photos/seed/pigeon7/600/450" alt="背景融合的和平鸽">
+                        <div class="card-overlay">
+                            <span class="icon-btn">⬇</span>
+                            <span class="icon-btn">♥</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">背景融合</h3>
+                        <div class="card-meta">
+                            <span>摄影</span>
+                            <span class="badge">PSD</span>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- Card 8 -->
+                 <article class="image-card">
+                    <div class="image-wrapper">
+                        <img src="https://picsum.photos/seed/pigeon8/600/450" alt="水墨风格的和平鸽">
+                        <div class="card-overlay">
+                            <span class="icon-btn">⬇</span>
+                            <span class="icon-btn">♥</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">水墨风格</h3>
+                        <div class="card-meta">
+                            <span>插画</span>
+                            <span class="badge">JPG</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-title">使用指南与版权说明</section>
+        
+        <section class="usage-guide">
+            <div class="guide-content">
+                <div class="guide-item">
+                    <span class="guide-icon">🔍</span>
+                    <h3>高清筛选</h3>
+                    <p>本站提供多种分辨率的和平鸽图片，支持4K、HDR及矢量格式，确保打印与屏幕显示效果。</p>
+                </div>
+                <div class="guide-item">
+                    <span class="guide-icon">⚖️</span>
+                    <h3>版权清晰</h3>
+                    <p>所有素材均经过版权审核，提供商业授权，可用于企业宣传、公益广告及媒体出版。</p>
+                </div>
+                <div class="guide-item">
+                    <span class="guide-icon">🎨</span>
+                    <h3>灵活编辑</h3>
+                    <p>矢量和平鸽图片可无损放大，支持在Illustrator、Figma等软件中自由修改颜色与线条。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="faq-container">
+                <div class="section-title" style="text-align: center; border: none; padding: 0; margin-bottom: 30px;">常见问题</div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">如何下载高清的和平鸽图片？ <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></div>
+                    <div class="faq-answer">点击图片卡片上的下载按钮，选择您需要的格式（JPG/PNG/EPS）和分辨率，注册会员后即可免费下载。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">这些和平鸽素材可以商用吗？ <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></div>
+                    <div class="faq-answer">是的，本站所有图片均属于可商用素材，但需遵守相应的授权协议，严禁用于非法用途或侵犯他人版权。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">和平鸽图片的背景可以更换吗？ <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg></div>
+                    <div class="faq-answer">矢量和平鸽图片（EPS/AI格式）可以自由更换背景色；摄影图片通常为透明背景，可直接拖入设计软件使用。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>鸽语图库</h4>
+                <p style="color: #bdc3c7; font-size: 14px; line-height: 1.8;">专注提供高质量、正版授权的和平鸽及相关主题图片素材，为设计师和创作者提供灵感支持。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">最新上传</a></li>
+                    <li><a href="#">热门排行</a></li>
+                    <li><a href="#">编辑推荐</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源分类</h4>
+                <ul>
+                    <li><a href="#">高清摄影</a></li>
+                    <li><a href="#">矢量插画</a></li>
+                    <li><a href="#">图标素材</a></li>
+                    <li><a href="#">背景模板</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li><a href="#">商务合作</a></li>
+                    <li><a href="#">版权咨询</a></li>
+                    <li><a href="#">提交素材</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 鸽语图库. 保留所有权利. 本站资源仅供学习与交流使用。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Filter Tag Interaction
+            const filterTags = document.querySelectorAll('.filter-tag');
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', () => {
+                    filterTags.forEach(t => t.classList.remove('active'));
+                    tag.classList.add('active');
+                    // In a real app, this would filter the grid items
+                    // For demo, we just show a console log
+                    console.log('Filter applied:', tag.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
