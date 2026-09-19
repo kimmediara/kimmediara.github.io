@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>u罗汉-传统养生智慧与现代健康管理的融合指南</title>
+    <meta name="description" content="u罗汉为您提供关于传统罗汉养生功法、现代健康生活理念及身心调理的全面指南。探索u罗汉如何帮助您在快节奏生活中寻找平衡，提升生命质量。">
+    <meta name="keywords" content="u罗汉, 罗汉养生, 传统功法, 身心调理, 健康管理, 气功">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #8c7b75;
+            --accent-color: #d4a373;
+            --bg-color: #f9f7f2;
+            --text-color: #333333;
+            --light-text: #666666;
+            --white: #ffffff;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 布局容器 */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3a5a8a;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #6c8caf 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* 介绍部分 */
+        .intro-section {
+            padding: 60px 0;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+
+        .intro-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* 特性网格 */
+        .features {
+            background-color: var(--white);
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(74, 111, 165, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        /* 内容区域布局 */
+        .content-wrapper {
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .main-column h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            color: var(--text-color);
+        }
+
+        /* 文章列表 */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .article-item {
+            display: flex;
+            gap: 20px;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .article-thumb {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .article-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-info h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .article-info p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* 侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .category-list li {
+            margin-bottom: 10px;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        .category-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .count {
+            background-color: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            background-color: var(--white);
+            padding: 60px 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: var(--light-text);
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* 简化处理，移动端隐藏菜单 */
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .intro-content, .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .article-item {
+                flex-direction: column;
+            }
+
+            .article-thumb {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <span>u罗汉</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#">首页</a>
+                <a href="#intro">理念</a>
+                <a href="#features">特色</a>
+                <a href="#resources">资源</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+            <a href="#contact" class="cta-button">开始体验</a>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>在喧嚣中寻找平衡<br>重塑身心能量</h1>
+            <p>u罗汉致力于将传统罗汉养生智慧与现代健康管理科学相结合，为您提供一套行之有效的身心调理方案。</p>
+            <div class="hero-buttons">
+                <a href="#intro" class="cta-button">了解原理</a>
+                <a href="#resources" class="btn-outline">浏览资源</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 简介区域 -->
+    <section id="intro" class="intro-section">
+        <div class="container intro-content">
+            <div class="intro-text">
+                <h2>什么是 u罗汉？</h2>
+                <p>u罗汉并非单纯的传统武术流派，而是一种融合了现代生理学、心理学与古典养生哲学的综合健康管理体系。它强调“动静结合”与“内外兼修”，旨在帮助现代人缓解压力、改善亚健康状态。</p>
+                <p>通过科学的呼吸调节、体态矫正与意念引导，u罗汉帮助用户激活身体潜能，提升专注力，并在快节奏的生活中重建内心的宁静与秩序。</p>
+                <a href="#" style="color: var(--primary-color); font-weight: 600; margin-top: 10px; display: inline-block;">阅读更多关于 u罗汉 的历史渊源 &rarr;</a>
+            </div>
+            <div class="intro-image">
+                <img src="https://picsum.photos/seed/u_luo_han_intro/600/400" alt="u罗汉练习者冥想场景">
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心特色 -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; font-size: 2rem;">u罗汉 的核心价值</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">🧘</div>
+                    <h3>身心合一</h3>
+                    <p>通过呼吸与动作的配合，打通经络，促进气血运行，达到身心高度统一的放松状态。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>增强免疫</h3>
+                    <p>科学研究表明，规律的 u罗汉 练习能有效调节神经系统，增强机体抵抗力。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>提升专注</h3>
+                    <p>训练大脑对身体的控制力，显著提高工作与学习时的专注度与思维清晰度。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>社群共修</h3>
+                    <p>加入 u罗汉 修行社群，与志同道合的伙伴交流心得，获得持续的进步动力。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容区：文章列表与侧边栏 -->
+    <section id="resources" class="content-wrapper">
+        <main class="main-column">
+            <h2>最新修行指南与资讯</h2>
+            
+            <div class="article-list">
+                <article class="article-item">
+                    <img src="https://picsum.photos/seed/u_luo_han_art1/300/200" alt="晨练示意图" class="article-thumb">
+                    <div class="article-info">
+                        <h3>晨间 u罗汉 练习：如何开启元气满满的一天</h3>
+                        <p>早晨是人体阳气生发之时，掌握正确的 u罗汉 晨练流程，能有效唤醒身体机能。本文将详细介绍从热身到收功的完整步骤。</p>
+                        <div class="article-meta">发布于 2023年10月24日 | 分类：基础入门</div>
+                    </div>
+                </article>
+
+                <article class="article-item">
+                    <img src="https://picsum.photos/seed/u_luo_han_art2/300/200" alt="呼吸调节" class="article-thumb">
+                    <div class="article-info">
+                        <h3>呼吸的艺术：u罗汉 核心呼吸法解析</h3>
+                        <p>呼吸是 u罗汉 练习的灵魂。我们将深入探讨腹式呼吸与胸式呼吸的区别，以及如何在练习中运用“闻花香”的呼吸技巧来放松神经。</p>
+                        <div class="article-meta">发布于 2023年10月20日 | 分类：技巧进阶</div>
+                    </div>
+                </article>
+
+                <article class="article-item">
+                    <img src="https://picsum.photos/seed/u_luo_han_art3/300/200" alt="饮食建议" class="article-thumb">
+                    <div class="article-info">
+                        <h3>食疗与修行：搭配 u罗汉 的饮食建议</h3>
+                        <p>“三分练，七分吃”。合理的饮食能辅助 u罗汉 练习的效果。推荐几款适合修行者的养生茶饮与清淡食谱。</p>
+                        <div class="article-meta">发布于 2023年10月15日 | 分类：生活养生</div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>热门分类</h3>
+                <ul class="category-list">
+                    <li><a href="#">基础功法 <span class="count">128</span></a></li>
+                    <li><a href="#">呼吸训练 <span class="count">85</span></a></li>
+                    <li><a href="#">冥想引导 <span class="count">42</span></a></li>
+                    <li><a href="#">饮食调理 <span class="count">56</span></a></li>
+                    <li><a href="#">心理调节 <span class="count">30</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>每日一句</h3>
+                <p style="font-style: italic; color: var(--light-text);">“心若冰清，天塌不惊。”</p>
+                <p style="font-size: 0.8rem; color: #999; margin-top: 10px;">—— u罗汉 经典语录</p>
+            </div>
+        </aside>
+    </section>
+
+    <!-- 常见问题 -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px; font-size: 2rem;">常见问题解答</h2>
+            <div class="faq-item">
+                <div class="faq-question">u罗汉 适合初学者吗？ <span>+</span></div>
+                <div class="faq-answer">是的，u罗汉 的设计初衷就是为现代人打造。我们提供了从零开始的入门课程，动作温和，强调循序渐进，初学者完全可以在家跟随视频指导练习。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">练习 u罗汉 需要特殊的器材吗？ <span>+</span></div>
+                <div class="faq-answer">不需要。u罗汉 崇尚“大道至简”，练习主要依靠自身的身体重量和呼吸调节。只需穿着宽松舒适的衣服，在平坦的地面即可进行。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">每天练习多久为宜？ <span>+</span></div>
+                <div class="faq-answer">建议每天坚持练习 15 到 30 分钟。持之以恒比单次长时间练习更重要，养成规律的习惯是取得效果的关键。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于 u罗汉</h4>
+                    <p style="color: #bdc3c7; font-size: 0.9rem;">u罗汉 是一个致力于传播健康生活方式的在线平台，连接传统智慧与现代科学。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">课程预约</a></li>
+                        <li><a href="#">在线社群</a></li>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱：contact@ulohan.com</li>
+                        <li>电话：400-123-4567</li>
+                        <li>地址：健康大道 888 号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 u罗汉. 保留所有权利. 本网站内容仅供参考，不作为医疗诊断依据。
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
